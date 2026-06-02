@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>ER Detailing Studio | Premium Car Detailing</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #0b0b0b;
+        color: #fff;
+        overflow-x: hidden;
+      }
+
+      :root {
+        --gold: #d4af37;
+        --dark: #0b0b0b;
+        --card: #151515;
+        --gray: #999;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1300px;
+        margin: auto;
+      }
+
+      /* NAVBAR */
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 5%;
+      }
+
+      .logo {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--gold);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+
+      .menu-btn {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      /* HERO */
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)),
+          url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero-content {
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 4rem;
+        max-width: 900px;
+        margin: auto;
+        line-height: 1.1;
+      }
+
+      .hero span {
+        color: var(--gold);
+      }
+
+      .hero p {
+        color: #ddd;
+        max-width: 700px;
+        margin: 25px auto;
+        font-size: 1.1rem;
+      }
+
+      .btns {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .btn-primary {
+        background: var(--gold);
+        color: black;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+      }
+
+      .btn-outline {
+        border: 2px solid var(--gold);
+        background: transparent;
+        color: white;
+      }
+
+      /* SECTION */
+
+      section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title h2 {
+        font-size: 2.8rem;
+      }
+
+      .section-title p {
+        color: var(--gray);
+        margin-top: 15px;
+      }
+
+      /* ABOUT */
+
+      .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+
+      .about img {
+        width: 100%;
+        border-radius: 20px;
+      }
+
+      .about-content h3 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .about-content p {
+        color: #bbb;
+        line-height: 1.8;
+      }
+
+      /* SERVICES */
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .service-card {
+        background: var(--card);
+        padding: 30px;
+        border-radius: 20px;
+        transition: 0.4s;
+        border: 1px solid #222;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--gold);
+      }
+
+      .service-icon {
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .service-card h3 {
+        margin-bottom: 15px;
+      }
+
+      /* WHY */
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .why-card {
+        background: #111;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+      }
+
+      /* PORTFOLIO */
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 20px;
+        transition: 0.4s;
+      }
+
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
+
+      /* TESTIMONIALS */
+
+      .testimonials {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      .testimonial {
+        background: var(--card);
+        padding: 30px;
+        border-radius: 20px;
+      }
+
+      .testimonial p {
+        color: #ccc;
+        margin-bottom: 20px;
+      }
+
+      /* CONTACT */
+
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 15px;
+        border: none;
+        background: #151515;
+        color: white;
+        border-radius: 10px;
+      }
+
+      .contact-form textarea {
+        height: 150px;
+        resize: none;
+      }
+
+      .contact-info h3 {
+        margin-bottom: 20px;
+      }
+
+      .contact-info p {
+        margin-bottom: 15px;
+        color: #ccc;
+      }
+
+      /* FOOTER */
+
+      footer {
+        background: #050505;
+        text-align: center;
+        padding: 30px;
+        color: #777;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .about,
+        .contact-wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          position: absolute;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background: #111;
+          flex-direction: column;
+          text-align: center;
+          padding: 20px;
+          display: none;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .menu-btn {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-container">
+        <div class="logo">ER Detailing Studio</div>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <h1>Premium <span>Car Protection</span> & Detailing Services</h1>
+
+        <p>
+          Protect your investment with world-class Paint Protection Film,
+          Graphene Coating, Detailing, Painting and Denting solutions.
+        </p>
+
+        <div class="btns">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Book Inspection</button>
+          <a href="https://www.instagram.com/er__studio_/" target="_blank" class="btn btn-outline" style="text-decoration: none;">Follow on Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Us</h2>
+          <p>Driven By Perfection</p>
+        </div>
+
+        <div class="about">
+          <img
+            src="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+          />
+
+          <div class="about-content">
+            <h3>Your Car Deserves The Best</h3>
+
+            <p>
+              We specialize in premium automotive detailing and paint protection
+              solutions. Our expert technicians use industry-leading products
+              and techniques to keep your vehicle looking showroom fresh.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>Complete Vehicle Protection & Restoration</p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🛡️</div>
+            <h3>Paint Protection Film</h3>
+            <p>
+              Self-healing PPF protection against scratches, chips and road
+              damage.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">✨</div>
+            <h3>Graphene Coating</h3>
+            <p>
+              Advanced hydrophobic coating for unmatched gloss and durability.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🚘</div>
+            <h3>Car Detailing</h3>
+            <p>
+              Complete interior and exterior detailing for showroom-level
+              finish.
+            </p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🎨</div>
+            <h3>Painting</h3>
+            <p>Professional repainting and color matching services.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🔧</div>
+            <h3>Denting</h3>
+            <p>Restore body panels and remove dents with precision.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Choose Us</h2>
+          <p>Trusted By Car Enthusiasts</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <h3>Certified Experts</h3>
+            <p>Highly trained professionals.</p>
+          </div>
+
+          <div class="why-card">
+            <h3>Premium Products</h3>
+            <p>Industry-leading coatings and films.</p>
+          </div>
+
+          <div class="why-card">
+            <h3>Attention To Detail</h3>
+            <p>Every inch inspected and perfected.</p>
+          </div>
+
+          <div class="why-card">
+            <h3>Customer Satisfaction</h3>
+            <p>Hundreds of happy vehicle owners.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Work</h2>
+          <p>Transformations That Speak For Themselves</p>
+        </div>
+
+        <div class="gallery">
+          <img
+            src="https://images.unsplash.com/photo-1502877338535-766e1452684a"
+          />
+
+          <img
+            src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d"
+          />
+
+          <img
+            src="https://images.unsplash.com/photo-1494905998402-395d579af36f"
+          />
+
+          <img
+            src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b"
+          />
+
+          <img
+            src="https://images.unsplash.com/photo-1502161254066-6c74afbf07aa"
+          />
+
+          <img
+            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Testimonials</h2>
+          <p>What Our Clients Say</p>
+        </div>
+
+        <div class="testimonials">
+          <div class="testimonial">
+            <p>
+              "The graphene coating exceeded expectations. Incredible shine!"
+            </p>
+            <h4>- Rahul Sharma</h4>
+          </div>
+
+          <div class="testimonial">
+            <p>"PPF installation was flawless. Excellent workmanship."</p>
+            <h4>- Aman Patel</h4>
+          </div>
+
+          <div class="testimonial">
+            <p>"My car looks better than the day I bought it."</p>
+            <h4>- Karan Mehta</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Get In Touch</h2>
+          <p>Book Your Appointment Today</p>
+        </div>
+
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+
+            <p>📍 Mumbai, Maharashtra</p>
+            <p>📞 +91 98765 43210</p>
+            <p>✉ info@eliteautostudio.com</p>
+          </div>
+
+          <form class="contact-form" id="appointmentForm">
+            <input type="text" name="entry.1838365453" placeholder="Your Name" required />
+
+            <input type="tel" id="phoneNumber" name="entry.91442333" placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number" required />
+
+            <input type="text" name="entry.2076480877" placeholder="Car Model" required />
+
+            <button class="btn btn-primary" type="submit">Book Appointment</button>
+          </form>
+          <div id="successMessage" style="display:none; margin-top: 20px; padding: 15px; background: #2d5f2e; border-radius: 10px; text-align: center; color: #4ade80;">
+            ✓ Appointment booked successfully! We'll contact you soon.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 ER Detailing Studio. All Rights Reserved.</footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+
+      // Validate phone number - only allow numbers
+      const phoneInput = document.getElementById("phoneNumber");
+      phoneInput.addEventListener("input", function(e) {
+        this.value = this.value.replace(/[^0-9]/g, "");
+      });
+
+      // Handle appointment form submission
+      document.getElementById("appointmentForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const phone = phoneInput.value;
+        if (!/^[0-9]{10}$/.test(phone)) {
+          alert("Please enter a valid 10-digit phone number");
+          return;
+        }
+        
+        const formData = new FormData(this);
+        const url = "https://docs.google.com/forms/d/e/1FAIpQLSc3zUNrXZLeQbGYw2cSWX2omws3Tg6ywAvZ7dDOVQG1bfaq0Q/formResponse";
+        
+        fetch(url, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors"
+        }).then(() => {
+          // Show success message
+          document.getElementById("appointmentForm").style.display = "none";
+          document.getElementById("successMessage").style.display = "block";
+          
+          // Reset form
+          document.getElementById("appointmentForm").reset();
+          
+          // Optional: Hide success message after 5 seconds
+          setTimeout(() => {
+            document.getElementById("appointmentForm").style.display = "block";
+            document.getElementById("successMessage").style.display = "none";
+          }, 5000);
+        }).catch(error => {
+          alert("Error submitting appointment. Please try again.");
+          console.error(error);
+        });
+      });
+    </script>
+  </body>
+</html>
